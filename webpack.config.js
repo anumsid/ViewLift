@@ -13,6 +13,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -24,11 +30,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { url: true, sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } }
-        ]
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        // use: [
+        //   { loader: 'style-loader' },
+        //   { loader: 'css-loader', options: { modules: true, importLoaders: 1, url: true, sourceMap: true } },
+        //   { loader: 'sass-loader', options: { sourceMap: true } },
+        // ]
       }
     ]
   },
