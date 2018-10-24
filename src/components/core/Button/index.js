@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./index.scss";
 
-const Button = ({ type, myProp }) => (
-  <div>
-    <button type={type} prop={myProp} />
-  </div>
+/* eslint-disable react/button-has-type */
+const Button = ({ type, label }) => (
+  <button className="button" type={type}>{label}</button>
 );
+/* eslint-enable react/button-has-type */
 
 export default Button;
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  myProp: PropTypes.number,
+  label: PropTypes.string.isRequired,
 };

@@ -30,12 +30,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-        // use: [
-        //   { loader: 'style-loader' },
-        //   { loader: 'css-loader', options: { modules: true, importLoaders: 1, url: true, sourceMap: true } },
-        //   { loader: 'sass-loader', options: { sourceMap: true } },
-        // ]
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { url: true, sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ]
       }
     ]
   },

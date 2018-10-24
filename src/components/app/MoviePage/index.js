@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.scss";
-// import Input from "../../core/Input";
 
 class MoviePage extends React.Component {
   constructor() {
@@ -16,18 +15,21 @@ class MoviePage extends React.Component {
 
   render() {
     const { films } = this.state;
-    return (
-      <div className="film-wrapper">
-        {
-          films.map(film => (
-            <div className="film" key={film.id}>
-              <h3>{film.title}</h3>
-              <img className="film-image" src={film.images.image[0].src} alt="Some film" />
-            </div>
-          ))
-        }
-      </div>
-    );
+    /* eslint-disable react/jsx-indent, indent */
+    return films.length > 0
+      ? (
+          <div className="film-wrapper">
+            {
+              films.map(film => (
+                <div className="film" key={film.id}>
+                  <h3>{film.title}</h3>
+                  <img className="film-image" src={film.images.image[0].src} alt="Some film" />
+                </div>
+              ))
+            }
+          </div>
+        )
+      : <div className="loader"><i className="fas fa-7x fa-spinner" /></div>;
   }
 }
 

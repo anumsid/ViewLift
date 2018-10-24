@@ -24,3 +24,18 @@ $max-width-mobile: 600px;
     }
   }
 }
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
